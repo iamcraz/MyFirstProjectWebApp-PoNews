@@ -20,6 +20,7 @@ namespace Datalayer
         [Display(Name = "ایمیل")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [MaxLength(250)]
+
         public string Email { get; set; }
 
         [Display(Name = "کلمه عبور")]
