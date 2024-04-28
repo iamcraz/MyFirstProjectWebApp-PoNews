@@ -130,6 +130,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\PageGroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PagesController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -313,6 +314,7 @@
     <Content Include="Views\News\ShowGroupsNews.cshtml" />
     <Content Include="Views\News\ShowComments.cshtml" />
     <Content Include="Views\News\Show_AddComment.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

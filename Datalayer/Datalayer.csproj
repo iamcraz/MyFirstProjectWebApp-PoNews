@@ -56,17 +56,25 @@
     <Compile Include="Migrations\202402171014581_Initial_Database.designer.cs">
       <DependentUpon>202402171014581_Initial_Database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202404280955467_add_adminlogin.cs" />
+    <Compile Include="Migrations\202404280955467_add_adminlogin.Designer.cs">
+      <DependentUpon>202404280955467_add_adminlogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AdminLogin.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\PageComment.cs" />
     <Compile Include="Models\PageGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ILoginRepository.cs" />
     <Compile Include="Repositories\IPageCommentRepository.cs" />
     <Compile Include="Repositories\IPageGroupRepository.cs" />
     <Compile Include="Repositories\IPageRepositroy.cs" />
+    <Compile Include="Services\LoginRepository.cs" />
     <Compile Include="Services\PageCommentRepository.cs" />
     <Compile Include="Services\PageGroupRepository.cs" />
     <Compile Include="Services\PageRepository.cs" />
+    <Compile Include="View Model\LoginViewModel.cs" />
     <Compile Include="View Model\ShowGroupsView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +84,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202402171014581_Initial_Database.resx">
       <DependentUpon>202402171014581_Initial_Database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404280955467_add_adminlogin.resx">
+      <DependentUpon>202404280955467_add_adminlogin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

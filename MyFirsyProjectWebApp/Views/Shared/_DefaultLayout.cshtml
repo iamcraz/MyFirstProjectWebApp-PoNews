@@ -66,14 +66,13 @@
             <ul>
                 <li><a href="/"> صفحه اصلی </a></li>
                 <li><a href=""> ثبت نام </a></li>
-                <li><a href=""> ورود به سایت </a></li>
+                <li><a href="/Account/Login"> ورود به سایت </a></li>
                 <li>
                     <span>گروه های خبری</span>
                     <ul>
                         @Html.Action("ShowGroupsNavBar", "News");
                     </ul>
                 </li>
-                <li><a href="~/Areas/Admin/Controllers/">ادمین</a></li>
             </ul>
         </div>
     </nav>
@@ -147,5 +146,6 @@
 
     <script src="/content/js/owl.carousel.js"></script>
     <script src="/content/js/script.js"></script>
+    @RenderSection("Scripts",false)
 </body>
 </html>
