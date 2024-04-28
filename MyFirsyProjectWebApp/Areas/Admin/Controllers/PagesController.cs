@@ -11,6 +11,7 @@ using Datalayer;
 
 namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
 {
+    [Authorize]
     public class PagesController : Controller
     {
         private IPageRepositroy pageRepositroy;
@@ -24,7 +25,6 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Pages
-        [Authorize]
         public ActionResult Index()
         {
 
@@ -32,7 +32,6 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Pages/Details/5
-        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -48,7 +47,6 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Pages/Create
-        [Authorize]
         public ActionResult Create()
         {
             ViewBag.GroupID = new SelectList(pageGroupRepository.GetAllGroups(), "GroupID", "GroupTitle");
@@ -59,7 +57,7 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PageID,GroupID,Title,ShortDiscription,Text,Visit,ImageName,ShowInSlider,CreateDate")] Page page,HttpPostedFileBase imgUp)
         {
             if (ModelState.IsValid)
@@ -84,7 +82,6 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Pages/Edit/5
-        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -104,7 +101,7 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PageID,GroupID,Title,ShortDiscription,Text,Visit,ImageName,ShowInSlider,CreateDate")] Page page,HttpPostedFileBase imgUp)
         {
             if (ModelState.IsValid)
@@ -129,7 +126,6 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Pages/Delete/5
-        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -146,7 +142,7 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
 
         // POST: Admin/Pages/Delete/5
         [HttpPost, ActionName("Delete")]
-        [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Page page = pageRepositroy.GetPageByID(id);

@@ -10,7 +10,7 @@ using Datalayer;
 
 namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
 {
-    
+    [Authorize]
     public class PageGroupsController : Controller
     {
         private IPageGroupRepository pageGroupRepository;
@@ -22,12 +22,12 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
             pageGroupRepository = new PageGroupRepository(db);
             
         }
-        [Authorize]
+
         public  ActionResult Index()
         {
             return View(pageGroupRepository.GetAllGroups());
         }
-        [Authorize]
+
         // GET: Admin/PageGroups/Details/5
         public ActionResult Details(int? id)
         {
@@ -42,7 +42,7 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
             }
             return PartialView(pageGroup);
         }
-        [Authorize]
+
         // GET: Admin/PageGroups/Create
         public ActionResult Create()
         {
@@ -53,7 +53,7 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "GroupID,GroupTitle")] PageGroup pageGroup)
         {
             if (ModelState.IsValid)
@@ -67,7 +67,7 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/PageGroups/Edit/5
-        [Authorize]
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -86,7 +86,7 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "GroupID,GroupTitle")] PageGroup pageGroup)
         {
             if (ModelState.IsValid)
@@ -99,7 +99,7 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/PageGroups/Delete/5
-        [Authorize]
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -116,7 +116,7 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
 
         // POST: Admin/PageGroups/Delete/5
         [HttpPost, ActionName("Delete")]
-        [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             pageGroupRepository.Delete(id);
