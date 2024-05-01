@@ -112,5 +112,13 @@ namespace Datalayer
         {
             return db.Pages.First(x => x.GroupID == id).PageGroup.GroupTitle;
         }
+        public IEnumerable<Page> SearchPage(string search)
+        {
+            return
+                db.Pages.Where(
+                    p =>
+                        p.Title.Contains(search) || p.ShortDiscription.Contains(search) || 
+                        p.Text.Contains(search)).Distinct();
+        }
     }
 }

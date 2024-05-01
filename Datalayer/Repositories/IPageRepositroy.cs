@@ -20,5 +20,6 @@ namespace Datalayer
         IEnumerable<Page> GetPagesByDate(int take);
         IEnumerable<Page> GetPagesByGroupID(int id);
         string GetPagesTitleByGroupId(int id);
+        IEnumerable<Page> SearchPage(string search);
     }
 }
