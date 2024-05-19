@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -110,7 +111,16 @@ namespace Datalayer
         }
         public string GetPagesTitleByGroupId(int id)
         {
-            return db.Pages.First(x => x.GroupID == id).PageGroup.GroupTitle;
+            try
+            {
+                return db.Pages.First(x => x.GroupID == id).PageGroup.GroupTitle;
+            }
+            catch
+            {
+                return null;
+            }
+            
+            
         }
         public IEnumerable<Page> SearchPage(string search)
         {

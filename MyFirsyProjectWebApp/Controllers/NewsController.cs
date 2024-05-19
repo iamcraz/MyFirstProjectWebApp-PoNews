@@ -61,8 +61,16 @@ namespace MyFirsyProjectWebApp.Controllers
         public ActionResult ShowGroupsNews(int id)
         {
             var title = pageRepositroy.GetPagesTitleByGroupId(id);
-            ViewBag.TitleName = title;
-            return View(pageRepositroy.GetPagesByGroupID(id));
+            if (title == null)
+            {
+                return null;
+            }
+            else
+            {
+                ViewBag.TitleName = title;
+                return View(pageRepositroy.GetPagesByGroupID(id));
+            }
+            
         }
         public ActionResult ShowComments(int id)
         {
