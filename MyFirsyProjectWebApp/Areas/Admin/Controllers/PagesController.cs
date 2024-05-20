@@ -73,7 +73,7 @@ namespace MyFirsyProjectWebApp.Areas.Admin.Controllers
 
 
                 pageRepositroy.Insert(page);
-                pageRepositroy.save();//////// دقیقا تا همینجا جلو رفتیم دقیقه 44 ویدیو و قراره ک عکس رو ذخیره کنیم//////
+                pageRepositroy.save();
                 return RedirectToAction("Index");
             }
 
